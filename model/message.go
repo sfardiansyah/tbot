@@ -15,6 +15,7 @@ const (
 	MessageInlineKeyboard
 	MessageContactButton
 	MessageLocationButton
+	MessageJoin
 )
 
 const (

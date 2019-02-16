@@ -97,8 +97,6 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 			continue
 		}
 
-		log.Println(updateMessage.Chat.Type)
-
 		message := &model.Message{
 			Replies:     make(chan *model.Message),
 			ChatID:      updateMessage.Chat.ID,
@@ -186,6 +184,10 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 				log.Println(err)
 				continue
 			}
+			messages <- message
+		case updateMessage.NewChatMembers != nil:
+			message.Type = model.MessageJoin
+			message.Data = ""
 			messages <- message
 		case updateMessage.Text != "":
 			message.Type = model.MessageText
