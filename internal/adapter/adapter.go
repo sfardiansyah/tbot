@@ -97,6 +97,8 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 			continue
 		}
 
+		log.Printf("%v", updateMessage.NewChatMembers)
+
 		message := &model.Message{
 			Replies:     make(chan *model.Message),
 			ChatID:      updateMessage.Chat.ID,
