@@ -187,7 +187,7 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 			messages <- message
 		case updateMessage.NewChatMembers != nil:
 			message.Type = model.MessageJoin
-			message.Data = ""
+			message.Data = "Test"
 			messages <- message
 		case updateMessage.Text != "":
 			message.Type = model.MessageText
@@ -205,6 +205,9 @@ func chattableFromMessage(m *model.Message) tgbotapi.Chattable {
 		if m.Markdown {
 			msg.ParseMode = tgbotapi.ModeMarkdown
 		}
+		return msg
+	case model.MessageJoin:
+		msg := tgbotapi.NewMessage(m.ChatID, m.Data)
 		return msg
 	case model.MessageContact:
 		msg := tgbotapi.NewContact(m.ChatID, m.Contact.PhoneNumber, m.From.FirstName)
