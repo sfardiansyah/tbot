@@ -97,6 +97,8 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 			continue
 		}
 
+		log.Println(updateMessage.Chat.Type)
+
 		message := &model.Message{
 			Replies:     make(chan *model.Message),
 			ChatID:      updateMessage.Chat.ID,
@@ -125,6 +127,19 @@ func (b *Bot) adaptUpdates(updates <-chan tgbotapi.Update, messages chan<- *mode
 				Longitude: updateMessage.Location.Longitude,
 				Latitude:  updateMessage.Location.Latitude,
 			}
+		}
+		if updateMessage.NewChatMembers != nil {
+			var users []model.User
+			for _, m := range *updateMessage.NewChatMembers {
+				users = append(users, model.User{
+					ID:           m.ID,
+					FirstName:    m.FirstName,
+					LastName:     m.LastName,
+					UserName:     m.UserName,
+					LanguageCode: m.LanguageCode,
+				})
+			}
+			message.NewChatMembers = users
 		}
 		if update.CallbackQuery != nil {
 			message.CallbackQuery = model.CallbackQuery{

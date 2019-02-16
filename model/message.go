@@ -37,6 +37,7 @@ type Message struct {
 	ChatType              string
 	DisablePreview        bool
 	Markdown              bool
+	NewChatMembers        []User
 	InlineButtons         []map[string]string
 	WithURLInlineButtons  bool
 	WithDataInlineButtons bool
