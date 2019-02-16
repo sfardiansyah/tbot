@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	tgbotapi "github.com/go-telegram-bot-api/telegram-bot-api"
-	"github.com/yanzay/tbot/model"
+	"github.com/sfardiansyah/tbot/model"
 )
 
 type BotAdapter interface {

@@ -7,7 +7,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/yanzay/tbot"
+	"github.com/sfardiansyah/tbot"
 )
 
 func main() {

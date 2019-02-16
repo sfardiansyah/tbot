@@ -6,8 +6,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/yanzay/tbot/internal/adapter"
-	"github.com/yanzay/tbot/model"
+	"github.com/sfardiansyah/tbot/internal/adapter"
+	"github.com/sfardiansyah/tbot/model"
 )
 
 func TestMain(m *testing.M) {
@@ -73,7 +73,7 @@ func TestDocumentUpload(t *testing.T) {
 		})
 	}
 	requestResponse(t, setup,
-		"https://raw.githubusercontent.com/yanzay/tbot/master/LICENSE",
+		"https://raw.githubusercontent.com/sfardiansyah/tbot/master/LICENSE",
 		model.MessageDocument, "OK", model.MessageText)
 }
 

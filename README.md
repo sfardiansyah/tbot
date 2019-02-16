@@ -1,5 +1,6 @@
-# tbot - Telegram Bot Server [![Build Status](https://travis-ci.org/yanzay/tbot.svg?branch=master)](https://travis-ci.org/yanzay/tbot) [![Go Report Card](https://goreportcard.com/badge/github.com/yanzay/tbot)](https://goreportcard.com/report/github.com/yanzay/tbot) [![codecov](https://codecov.io/gh/yanzay/tbot/branch/master/graph/badge.svg)](https://codecov.io/gh/yanzay/tbot)
-[![GoDoc](https://godoc.org/github.com/yanzay/tbot?status.svg)](https://godoc.org/github.com/yanzay/tbot)
+# tbot - Telegram Bot Server [![Build Status](https://travis-ci.org/sfardiansyah/tbot.svg?branch=master)](https://travis-ci.org/sfardiansyah/tbot) [![Go Report Card](https://goreportcard.com/badge/github.com/sfardiansyah/tbot)](https://goreportcard.com/report/github.com/sfardiansyah/tbot) [![codecov](https://codecov.io/gh/sfardiansyah/tbot/branch/master/graph/badge.svg)](https://codecov.io/gh/sfardiansyah/tbot)
+
+[![GoDoc](https://godoc.org/github.com/sfardiansyah/tbot?status.svg)](https://godoc.org/github.com/sfardiansyah/tbot)
 
 **tbot** is a Telegram bot server.
 
@@ -12,12 +13,12 @@
 ## Installation
 
 ```bash
-go get -u github.com/yanzay/tbot
+go get -u github.com/sfardiansyah/tbot
 ```
 
 ## Support
 
-For a brief introduction, take a look the blog post [on medium](https://medium.com/@yanzay/develop-your-own-telegram-bot-with-golang-and-tbot-de726883b83c).
+For a brief introduction, take a look the blog post [on medium](https://medium.com/@sfardiansyah/develop-your-own-telegram-bot-with-golang-and-tbot-de726883b83c).
 
 Join [telegram group](https://t.me/tbotgo) to get support or just to say thank you.
 
@@ -25,7 +26,8 @@ Join [telegram group](https://t.me/tbotgo) to get support or just to say thank y
 
 It feels like net/http Server, so it's easy to use:
 
-[embedmd]:# (examples/simple/main.go)
+[embedmd]: # "examples/simple/main.go"
+
 ```go
 package main
 
@@ -34,7 +36,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/yanzay/tbot"
+	"github.com/sfardiansyah/tbot"
 )
 
 func main() {
@@ -46,7 +48,7 @@ func main() {
 	}
 
 	// Use whitelist for Auth middleware, allow to interact only with user1 and user2
-	whitelist := []string{"yanzay", "user2"}
+	whitelist := []string{"sfardiansyah", "user2"}
 	bot.AddMiddleware(tbot.NewAuth(whitelist))
 
 	// Yo handler works without slash, simple text response
@@ -114,4 +116,4 @@ func FileHandler(message *tbot.Message) {
 }
 ```
 
-See full documentation on [godoc](https://godoc.org/github.com/yanzay/tbot).
+See full documentation on [godoc](https://godoc.org/github.com/sfardiansyah/tbot).

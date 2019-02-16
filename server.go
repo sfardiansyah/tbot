@@ -3,8 +3,8 @@ package tbot
 import (
 	"net/http"
 
-	"github.com/yanzay/tbot/internal/adapter"
-	"github.com/yanzay/tbot/model"
+	"github.com/sfardiansyah/tbot/internal/adapter"
+	"github.com/sfardiansyah/tbot/model"
 )
 
 // Server is a telegram bot server. Looks and feels like net/http.
